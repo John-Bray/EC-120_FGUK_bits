@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+	<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>175</max-m>
+    </animation>
+
+  <model>
+    <path>Aircraft/EC-120/Models/Interior/panel.ac</path>
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0 </z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+  <animation>
+    <object-name>needle_ASI</object-name>
+    <object-name>needle_VSI</object-name>
+    <object-name>needle_Alt1</object-name>
+    <object-name>needle_Alt2</object-name>
+ 	<object-name>HourHand</object-name>
+	<object-name>MinuteHand</object-name>
+	<object-name>SecondHand</object-name>    
+    <object-name>ball_AI_main</object-name>
+    <object-name>roll-pointer</object-name> 
+    
+    <object-name>diskHeading</object-name>
+    <object-name>bug_Heading</object-name>
+    <object-name>pointer_Course</object-name>
+
+   
+  </animation>	
+
+<!-- -2.182	0.117	-0.142                                   ASI / Air Speed Indicator -->    
+  <animation><type>rotate</type><object-name>needle_ASI</object-name>
+    <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+     <interpolation>
+      <entry><ind> -999 </ind><dep>   0 </dep></entry>
+      <entry><ind>    0 </ind><dep>   0 </dep></entry>
+      <entry><ind>   30 </ind><dep>  30 </dep></entry>
+      <entry><ind>   60 </ind><dep>  85 </dep></entry>
+      <entry><ind>  120 </ind><dep> 192 </dep></entry>
+      <entry><ind>  200 </ind><dep> 335 </dep></entry>
+      <entry><ind>  999 </ind><dep> 336 </dep></entry>
+    </interpolation>
+    <center>
+       <x-m>0.000</x-m><!-- back -->
+       <y-m>0.142</y-m><!-- right -->
+       <z-m>0.117</z-m><!-- up -->
+    </center>
+    <axis>
+      <x> -1 </x><!--  roll -->
+      <y>  0 </y><!-- pitch -->
+      <z>  0 </z><!--   yaw -->
+    </axis>
+  </animation><!--                                                end of animation ASI -->
+  
+<!-- -2.213 0.103 -0.229                  AI / Attitude Indicator / Artificial Horizon -->  
+  <animation><type>rotate</type><object-name>ball_AI_main</object-name>
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.000</x-m>
+      <y-m>0.229</y-m><!-- right -->
+      <z-m>0.103</z-m><!-- up -->
+    </center>
+    <axis> <x> 1 </x><!--  roll --><y> 0 </y><z> 0 </z></axis>
+  </animation>  
+  <animation><type>rotate</type><object-name>ball_AI_main</object-name>
+    <property>/orientation/pitch-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m> -2.213 </x-m><!-- back -->
+      <y-m>  0.000 </y-m>
+      <z-m>  0.103 </z-m><!-- up -->
+    </center>
+    <axis><x>0</x><y>1</y><!-- pitch --><z>0</z></axis>
+  </animation> 
+  <animation><type>rotate</type><object-name>roll-pointer</object-name> 
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0.000</x-m>
+      <y-m>0.229</y-m><!-- right -->
+      <z-m>0.103</z-m><!-- up -->
+    </center>
+    <axis><x> 1 </x><!--  roll --><y> 0 </y><z> 0 </z></axis>
+  </animation><!--                                                end of animation AHI -->
+	
+<!--       rotationVSI	-2.182	 0.042	-0.312          VSI / Vertical Speed Indicator -->  
+  <animation><type>rotate</type><object-name>needle_VSI</object-name>
+    <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+    <interpolation>
+     <entry><ind> -2500 </ind><dep>  -165 </dep></entry>
+     <entry><ind> -2000 </ind><dep>  -142 </dep></entry>
+      <entry><ind> -1500 </ind><dep> -110 </dep></entry>
+      <entry><ind> -1000 </ind><dep>  -82 </dep></entry>
+      <entry><ind>  -500 </ind><dep>  -40 </dep></entry>
+      <entry><ind>     0 </ind><dep>    0 </dep></entry>
+      <entry><ind>   500 </ind><dep>   40 </dep></entry>
+      <entry><ind>  1000 </ind><dep>   82 </dep></entry>
+      <entry><ind>  1500 </ind><dep>  110 </dep></entry>
+      <entry><ind>  2000 </ind><dep>  142 </dep></entry>
+      <entry><ind>  2500 </ind><dep>  165 </dep></entry>
+    </interpolation>
+    <center>
+       <x-m>0.000</x-m><!-- back -->
+       <y-m>0.312</y-m><!-- right -->
+       <z-m>0.042</z-m><!-- up -->
+    </center>
+    <axis><x> -1 </x><y>  0 </y><z>  0 </z></axis>
+  </animation><!--                                                end of animation VSI -->
+	
+ <!--  rotationAlt	-2.188	 0.116	-0.312                           Altimeter Needles -->
+ <animation><type>rotate</type><object-name>needle_Alt1</object-name>
+  <property>instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.36</factor>
+  <center>
+   <x-m>0</x-m>
+       <y-m>0.312</y-m><!-- right -->
+       <z-m>0.116</z-m><!-- up -->
+  </center> 
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation><type>rotate</type><object-name>needle_Alt2</object-name>
+  <property>instrumentation/altimeter/indicated-altitude-ft</property>
+  <factor>0.036</factor>
+  <center>
+   <x-m>0</x-m>
+       <y-m>0.312</y-m><!-- right -->
+       <z-m>0.116</z-m><!-- up -->
+  </center> 
+  <axis><x>-1</x><y>0</y><z>0</z></axis>
+ </animation><!--                                           end of animation Altimeter -->
+ 
+<!--    -2.183	-0.031	-0.142                                                  Clock  -->
+  <animation> <type>rotate</type><object-name>HourHand</object-name>
+		<property>instrumentation/clock/indicated-sec</property>
+		<factor>0.00833333333333333</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.142</y-m><!-- right -->
+      <z-m>-0.031</z-m><!-- up -->
+    </center> 
+    <axis><x>-1</x><y>0</y><z>0</z></axis>
+  </animation>
+	<animation> <type>rotate</type><object-name>MinuteHand</object-name>
+		<property>instrumentation/clock/indicated-sec</property>
+		<factor>0.1</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.142</y-m><!-- right -->
+      <z-m>-0.031</z-m><!-- up -->
+    </center> 
+    <axis><x>-1</x><y>0</y><z>0</z></axis>
+	</animation>
+	<animation> <type>rotate</type><object-name>SecondHand</object-name>
+		<property>instrumentation/clock/indicated-sec</property>
+		<factor>6</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.142</y-m><!-- right -->
+      <z-m>-0.031</z-m><!-- up -->
+    </center> 
+    <axis><x>-1</x><y>0</y><z>0</z></axis>
+	</animation><!--                                           end of animation Clock  -->
+		
+<!--  -2.188	 0.001	-0.230                          DI / DG / Gyro Compass (KI252) -->
+<animation><type>rotate</type><object-name>diskHeading</object-name>
+		<condition>
+		<greater-than>
+			<property>/engines/engine/n1-rpm</property>
+			<value>35000</value>
+		</greater-than>
+	</condition>
+	<property>instrumentation/heading-indicator/indicated-heading-deg</property>
+	<factor>1</factor>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.230</y-m><!-- right -->
+    <z-m>0.001</z-m><!-- up -->
+  </center>	
+	<axis><x>1</x></axis>
+</animation>
+
+<animation><type>rotate</type><object-name>pointer_Course</object-name>	
+	<property>instrumentation/heading-indicator/heading-bug-error-deg</property>
+	<factor>1</factor>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.230</y-m><!-- right -->
+    <z-m>0.001</z-m><!-- up -->
+  </center>	<axis><x>-1</x></axis>
+</animation>
+
+<animation><type>rotate</type><object-name>bug_Heading</object-name>
+	<property>/autopilot/internal/heading-bug-error-deg</property>
+	<factor>1</factor>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.230</y-m><!-- right -->
+    <z-m>0.001</z-m><!-- up -->
+  </center>	
+	<axis><x>-1</x></axis>
+</animation><!--                       end of animation DI / DG / Gyro Compass (KI252) -->
+
+
+<!-- Main panel instruments -->
+
+<model>
+	
+		<path>Aircraft/EC-120/Models/Interior/Instruments/VEMD/vemd.xml</path>
+		<offsets>
+			 <x-m>-2.19</x-m>
+       <y-m>0.005</y-m>
+      <z-m>0.127 </z-m>
+	    <pitch-deg>0</pitch-deg>
+		</offsets>
+		<overlay>
+		 <animation n="100">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1</x-offset>
+    <y-offset>1.05</y-offset>
+    <z-offset>1.05</z-offset>
+   </animation>
+  </overlay>	
+		
+	</model>
+	
+	
+	<model>
+	
+		<path>Aircraft/EC-120/Models/Interior/Instruments/helimap/helimap.xml</path>
+		<offsets>
+			 <x-m>-2.18</x-m>
+       <y-m>-0.18</y-m>
+      <z-m>0.105 </z-m>
+	    <pitch-deg>0</pitch-deg>
+		</offsets>
+		<overlay>
+		 <animation n="100">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1</x-offset>
+    <y-offset>1.05</y-offset>
+    <z-offset>1.05</z-offset>
+   </animation>
+  </overlay>	
+		
+	</model>
+	
+	
+	<model>
+	
+		<path>Aircraft/EC-120/Models/Interior/Instruments/GNS430/GNS430.xml</path>
+		<offsets>
+			 <x-m>-2.19</x-m>
+       <y-m>0.005</y-m>
+      <z-m>-0.03 </z-m>
+	    <pitch-deg>0</pitch-deg>
+		</offsets>
+		<overlay>
+		 <animation n="100">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1</x-offset>
+    <y-offset>1.05</y-offset>
+    <z-offset>1.05</z-offset>
+   </animation>
+  </overlay>	
+		
+	</model>
+	
+	<model>
+	
+		<path>Aircraft/EC-120/Models/Interior/Instruments/CWS/CWS.xml</path>
+		<offsets>
+			 <x-m>-2.194</x-m>
+       <y-m>0.1887</y-m>
+      <z-m>0.183 </z-m>
+	    <pitch-deg>0</pitch-deg>
+		</offsets>
+		<overlay>
+		 <animation n="100">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1</x-offset>
+    <y-offset>1.1</y-offset>
+    <z-offset>1</z-offset>
+   </animation>
+  </overlay>	
+		
+	</model>
+
+
+
+
+
+
+
+<!--	<model>
+	
+		<path>Aircraft/EC-120/Models/Interior/Instruments/Turn/Turn.xml</path>
+		<offsets>
+			 <x-m>-2.312</x-m>
+       <y-m>0.314</y-m>
+      <z-m>0.33 </z-m>
+	    <pitch-deg>-14</pitch-deg>
+		</offsets>
+		 <overlay>
+		 <animation n="100">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>0.1</x-offset>
+    <y-offset>0.7</y-offset>
+    <z-offset>0.7</z-offset>
+   </animation>
+  </overlay>	
+		
+	</model>
+	-->
+	
+
+	
+	<model>
+	
+		<path>Aircraft/EC-120/Models/Interior/Instruments/Tach/tach.xml</path>
+		<offsets>
+			 <x-m>-2.18</x-m>
+     <y-m>0.142</y-m>
+      <z-m>0.042</z-m>
+	    <pitch-deg>0</pitch-deg>
+		</offsets>
+		 <overlay>
+		 <animation n="100">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1</x-offset>
+    <y-offset>0.95</y-offset>
+    <z-offset>0.95</z-offset>
+   </animation>
+  </overlay>	
+		
+	</model>
+	
+	
+	<model>
+	
+		<path>Aircraft/EC-120/Models/Interior/Instruments/Breakers/ELT_switch_t2.xml</path>
+		<offsets>
+			 <x-m>-2.184</x-m>
+       <y-m>-0.198</y-m>
+      <z-m>0.22 </z-m>
+	    <pitch-deg>-0</pitch-deg>
+		</offsets>
+		 <overlay>
+		 <animation n="100">
+    <type>scale</type>
+    <property>constants/zero</property>
+    <x-offset>1</x-offset>
+    <y-offset>0.8</y-offset>
+    <z-offset>0.8</z-offset>
+   </animation>
+  </overlay>	
+		
+	</model>
+	
+
+</PropertyList>
+
